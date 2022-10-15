@@ -1,23 +1,25 @@
-#!/bin/bash
+	#!/bin/bash
+	# enter your array comparison code here
+    
+	a=(3 5 8 10 6)
+	b=(6 5 4 12)
+	c=(14 7 5 7)
+	R=()
+	for N in ${a[@]}; do 
+		for M in ${b[@]}; do 
+			if [ $N -eq $M ]; then
+				R[${#R[@]}]=$N
+			fi
+		done
+		for y in ${c[@]}; do
+			for x in ${R[@]}; do 
+				if [ $y -eq $x ]; then
+					j[${#j[@]}]=$y
+				fi
+			done
+		done
 
-BUFFETT="Life is like a snowball. The important thing is finding wet snow and a really long hill."
-# write your code here
-ISAY="Life is like a snowball. The important thing is finding wet snow and a really long hill."
-extract1=${ISAY[@]/snow/foot}
-extract2=${extract1[@]//snow/}
-extract3=${extract2[@]/finding/getting}
+	done
+	echo ${j[@]}
 
-indexW=`expr index "$extract3" 'w'`
-
-ISAY=${extract3::$indexW+2}
-
-
-
-
-
-
-# Test code - do not modify
-echo "Warren Buffett said:"
-echo $BUFFETT
-echo "and I say:"
-echo $ISAY
+	# Petit soucis au niveau du résultat qui est à revoir
